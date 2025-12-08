@@ -3,7 +3,43 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getImgPath } from "@/utils/image";
-import { projects } from "@/data/projects";
+
+/**
+ * Static list of 8 projects
+ * Each will link to Medium (placeholder "#" for now)
+ */
+const PROJECT_CARDS = [
+  {
+    title: "Image Emotion Detector using Hugging Face + AWS",
+    image: "/images/projects/image-emotion.png",
+    link: "#",
+  },
+  {
+    title: "AI-Powered Cloud Learning Assistant (Gemini API)",
+    image: "/images/projects/ai-cloud-tutor.png",
+    link: "#",
+  },
+  {
+    title: "Highly Available Architecture on AWS",
+    image: "/images/projects/ha-architecture.png",
+    link: "#",
+  },
+  {
+    title: "Real-Time AWS Operations from Slack (ChatOps)",
+    image: "/images/projects/slack-ops.gif",
+    link: "#",
+  },
+  {
+    title: "Serverless Inventory Management on AWS",
+    image: "/images/projects/serverless-inventory.png",
+    link: "#",
+  },
+  {
+    title: "Predicting Subscriptions with Amazon SageMaker",
+    image: "/images/projects/sagemaker-subscriptions.png",
+    link: "#",
+  },
+];
 
 const LatestWork = () => {
   return (
@@ -15,78 +51,40 @@ const LatestWork = () => {
             <div className="flex items-center justify-between gap-2 border-b border-black pb-7 mb-9 md:mb-16">
               <h2>Featured Projects</h2>
               <p className="text-xl text-orange-500">
-                ( {projects.length.toString().padStart(2, "0")} )
+                ( {PROJECT_CARDS.length.toString().padStart(2, "0")} )
               </p>
             </div>
 
-            {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8 xl:gap-y-10">
-              {projects.map((project) => (
-                <div
-                  key={project.slug}
-                  className="group flex flex-col gap-3 xl:gap-4"
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+              {PROJECT_CARDS.map((project, index) => (
+                <Link
+                  key={index}
+                  href={project.link}
+                  className="group flex flex-col gap-4 rounded-lg overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
                 >
-                  {/* Fixed-size image frame */}
-                  <div className="relative w-full aspect-[9/4] overflow-hidden rounded-lg">
+                  {/* Image */}
+                  <div className="relative w-full aspect-[4/3]">
                     <Image
                       src={getImgPath(project.image)}
                       alt={project.title}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-
-                    {/* Hover overlay */}
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="absolute inset-0 hidden group-hover:flex w-full h-full rounded-lg bg-primary/15 backdrop-blur-xs"
-                    >
-                      <span className="flex justify-center items-center p-5 w-full">
-                        <svg
-                          width="65"
-                          height="64"
-                          viewBox="0 0 65 64"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <rect
-                            x="0.333374"
-                            width="64"
-                            height="64"
-                            rx="32"
-                            fill="#FE4300"
-                          />
-                          <path
-                            d="M25.6667 25.3333H39M39 25.3333V38.6666M39 25.3333L25.6667 38.6666"
-                            stroke="#FFFF"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
-                    </Link>
                   </div>
 
-                  {/* Text */}
-                  <div className="flex flex-col gap-0 xl:gap-2">
-                    <div className="flex items-center justify-between">
-                      <Link href={`/projects/${project.slug}`}>
-                        <h5>{project.title}</h5>
-                      </Link>
-                      <Image
-                        src={getImgPath("/images/icon/right-arrow-icon.svg")}
-                        alt="right-arrow-icon"
-                        width={30}
-                        height={30}
-                      />
-                    </div>
-                    {/* Intentionally no grey subtitle/client line */}
+                  {/* Content */}
+                  <div className="p-4 flex flex-col gap-2">
+                    <h5 className="text-lg font-semibold leading-snug group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h5>
+                    <p className="text-secondary text-sm">
+                      Read full project → (Medium link coming soon)
+                    </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
-
-            {/* No "View all" button for now */}
           </div>
         </div>
       </div>
