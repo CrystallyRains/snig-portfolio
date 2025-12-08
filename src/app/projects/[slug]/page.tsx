@@ -1,13 +1,14 @@
 // src/app/projects/[slug]/page.tsx
 
-import type { ReactNode } from "react";
-import { notFound } from "next/navigation";
+import { type ReactNode, use } from "react";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import { notFound } from "next/navigation";
+import { projects } from "@/data/projects"; // adjust if your path is "@/data/projects"
 
 /* -------------------------------------------------------
-   Project Content Type
+   Types
 -------------------------------------------------------- */
+
 type ProjectContent = {
   overview: ReactNode;
   about: ReactNode;
@@ -19,15 +20,17 @@ type ProjectContent = {
 };
 
 /* -------------------------------------------------------
-   Base text and list classes
+   Styles
 -------------------------------------------------------- */
+
 const textBase = "text-base md:text-lg leading-relaxed text-gray-800";
 const listBase =
   "list-disc pl-5 space-y-2 text-base md:text-lg leading-relaxed text-gray-800";
 
 /* -------------------------------------------------------
-   ALL PROJECT CONTENT — 6 PROJECTS
+   CONTENT FOR ALL 6 PROJECTS
 -------------------------------------------------------- */
+
 const projectContent: Record<string, ProjectContent> = {
   /* -------------------------------------------------------
      1. IMAGE EMOTION DETECTOR
@@ -40,78 +43,64 @@ const projectContent: Record<string, ProjectContent> = {
         </h2>
         <h3 className="text-xl md:text-2xl font-semibold">Scenario</h3>
         <p className={textBase}>
-          This project is built for a fictional AI-driven SaaS startup called{" "}
-          <strong>Cloudhour</strong>. They want to understand how users feel
-          from uploaded images using a real-time AI workflow.
+          A fictional SaaS startup wants to detect emotion from uploaded images
+          using a real-time AI workflow.
         </p>
-        <p className={textBase}>
-          The requirement is a <strong>serverless, real-time application</strong>{" "}
-          that sends an image to a pre-trained ML model and returns the detected
-          emotion instantly.
-        </p>
-
         <h3 className="text-xl md:text-2xl font-semibold">Solution</h3>
         <p className={textBase}>
-          A fully serverless AI workflow using{" "}
-          <strong>Hugging Face Inference API</strong>,{" "}
-          <strong>AWS Lambda</strong>, <strong>API Gateway</strong> and{" "}
-          <strong>S3</strong> for UI hosting.
+          A serverless workflow using <strong>Hugging Face API</strong>,{" "}
+          <strong>Lambda</strong>, <strong>API Gateway</strong>, and{" "}
+          <strong>S3</strong>.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">About this project</h2>
         <p className={textBase}>
-          This project demonstrates how to combine AI API inference with AWS
-          serverless for real-time computer-vision tasks.
+          A real-time computer-vision workflow powered by serverless and
+          Hugging Face inference.
         </p>
-        <p className={textBase}>The app workflow includes:</p>
         <ul className={listBase}>
-          <li>Frontend hosted on S3</li>
-          <li>Lambda backend calling Hugging Face</li>
-          <li>REST API via API Gateway</li>
-          <li>Monitoring via CloudWatch</li>
+          <li>S3 UI hosting</li>
+          <li>Lambda invoking HF inference API</li>
+          <li>API Gateway for routing</li>
+          <li>CloudWatch logging</li>
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Created Hugging Face API token</li>
-          <li>Built Lambda to call HF emotion model</li>
-          <li>Created API Gateway endpoint</li>
-          <li>Hosted UI in S3</li>
-          <li>Tested end-to-end</li>
+          <li>Create Hugging Face API token</li>
+          <li>Build Lambda to call HF model</li>
+          <li>Configure API Gateway endpoint</li>
+          <li>Host UI on S3</li>
+          <li>Test workflow</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
         <ul className={listBase}>
           <li>Hugging Face API</li>
           <li>AWS Lambda</li>
-          <li>API Gateway</li>
           <li>Amazon S3</li>
+          <li>API Gateway</li>
           <li>CloudWatch</li>
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>2–3 hours • Free tier</p>
       </section>
     ),
-
     architectureImage: "/images/projects/image-emotion-architecture.png",
     finalResultImage: "/images/projects/image-emotion.png",
   },
@@ -127,71 +116,62 @@ const projectContent: Record<string, ProjectContent> = {
         </h2>
         <h3 className="text-xl md:text-2xl font-semibold">Scenario</h3>
         <p className={textBase}>
-          CloudQuery wants an AI-powered tutor for AWS learners using Gemini +
-          AWS serverless.
+          Build an AI-powered AWS tutor using Gemini + AWS services.
         </p>
-
         <h3 className="text-xl md:text-2xl font-semibold">Solution</h3>
         <p className={textBase}>
-          Built a serverless chatbot using <strong>Gemini API</strong>,{" "}
-          <strong>Lambda</strong>, <strong>API Gateway</strong>,{" "}
-          <strong>DynamoDB</strong> and <strong>AWS Amplify</strong>.
+          A serverless chatbot using <strong>Gemini API</strong>,{" "}
+          <strong>Lambda</strong>, <strong>DynamoDB</strong>,{" "}
+          <strong>API Gateway</strong> and <strong>Amplify</strong>.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">About this project</h2>
         <p className={textBase}>
-          This AI assistant responds to AWS questions, generates quizzes and
-          keeps conversation history.
+          The chatbot answers AWS questions, generates quizzes, and stores
+          conversation history.
         </p>
-
         <ul className={listBase}>
-          <li>Gemini API for reasoning</li>
-          <li>Lambda for backend logic</li>
+          <li>Gemini for reasoning</li>
           <li>DynamoDB for logs</li>
-          <li>Secrets Manager for API keys</li>
+          <li>Secrets Manager for keys</li>
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Stored API key in Secrets Manager</li>
-          <li>Created DynamoDB table</li>
-          <li>Built Lambda to call Gemini</li>
-          <li>Configured API Gateway</li>
-          <li>Deployed UI using Amplify</li>
+          <li>Setup Secrets Manager</li>
+          <li>Create DynamoDB table</li>
+          <li>Build Lambda chatbot handler</li>
+          <li>Create API Gateway routes</li>
+          <li>Deploy UI via Amplify</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
         <ul className={listBase}>
-          <li>API Gateway</li>
-          <li>AWS Lambda</li>
+          <li>Lambda</li>
           <li>DynamoDB</li>
-          <li>Secrets Manager</li>
+          <li>API Gateway</li>
           <li>Amplify</li>
+          <li>Secrets Manager</li>
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>2–3 hours • ~$1</p>
       </section>
     ),
-
     architectureImage: "/images/projects/ai-cloud-tutor-architecture.png",
     finalResultImage: "/images/projects/ai-cloud-tutor.png",
   },
@@ -202,14 +182,16 @@ const projectContent: Record<string, ProjectContent> = {
   "highly-available-architecture": {
     overview: (
       <section className="space-y-4">
-        <h2 className="text-2xl md:text-3xl font-semibold">Overview of Project ☁️</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Overview of Project ☁️
+        </h2>
         <h3 className="text-xl md:text-2xl font-semibold">Scenario</h3>
         <p className={textBase}>
-          Migrating a medical app into a fault-tolerant multi-AZ architecture.
+          Migrating a healthcare application into a fault-tolerant multi-AZ
+          architecture.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">
@@ -223,20 +205,18 @@ const projectContent: Record<string, ProjectContent> = {
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Launch Template</li>
-          <li>Auto Scaling Group</li>
-          <li>ALB setup</li>
-          <li>RDS Multi-AZ</li>
-          <li>Route 53 failover</li>
+          <li>Create Launch Template</li>
+          <li>Set up Auto Scaling Group</li>
+          <li>Configure ALB</li>
+          <li>Deploy Multi-AZ RDS</li>
+          <li>Configure Route 53 failover</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
@@ -249,16 +229,14 @@ const projectContent: Record<string, ProjectContent> = {
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>3–4 hours • ~$3</p>
       </section>
     ),
-
     architectureImage: "/images/projects/ha-architecture-diagram.png",
     finalResultImage: "/images/projects/ha-architecture.png",
   },
@@ -269,13 +247,15 @@ const projectContent: Record<string, ProjectContent> = {
   "aws-ops-from-slack": {
     overview: (
       <section className="space-y-4">
-        <h2 className="text-2xl md:text-3xl font-semibold">Overview of Project ☁️</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold">
+          Overview of Project ☁️
+        </h2>
         <p className={textBase}>
-          ChatOps pipeline integrating AWS → Slack for ops automation.
+          A ChatOps pipeline that sends AWS alarms and commands directly into
+          Slack.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">
@@ -283,49 +263,44 @@ const projectContent: Record<string, ProjectContent> = {
         </h2>
         <ul className={listBase}>
           <li>AWS Chatbot</li>
-          <li>CloudWatch Alarms</li>
+          <li>CloudWatch alarms</li>
           <li>EventBridge routing</li>
-          <li>Lambda remediation</li>
-          <li>IAM access control</li>
+          <li>Lambda remediation actions</li>
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Connected Slack workspace</li>
-          <li>Created Lambda/SSM actions</li>
-          <li>Configured CloudWatch alarms</li>
-          <li>Routed alarms to Slack</li>
-          <li>IAM role configuration</li>
+          <li>Connect Slack workspace</li>
+          <li>Create Lambda actions</li>
+          <li>Configure CloudWatch alarms</li>
+          <li>Route alarms to Slack</li>
+          <li>Set IAM permissions</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
         <ul className={listBase}>
           <li>AWS Chatbot</li>
+          <li>Lambda</li>
           <li>CloudWatch</li>
           <li>EventBridge</li>
-          <li>Lambda</li>
           <li>IAM</li>
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>3–4 hours • Free tier</p>
       </section>
     ),
-
     architectureImage: "/images/projects/slack-ops-architecture.png",
     finalResultImage: "/images/projects/slack-ops.gif",
   },
@@ -340,61 +315,55 @@ const projectContent: Record<string, ProjectContent> = {
           Overview of Project ☁️
         </h2>
         <p className={textBase}>
-          Serverless inventory backend using API Gateway + Lambda + DynamoDB +
-          Amplify.
+          A fully serverless REST API backend for managing inventory using AWS.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">
           What this project covers
         </h2>
         <ul className={listBase}>
-          <li>REST API using API Gateway</li>
-          <li>Lambda CRUD backend</li>
-          <li>DynamoDB storage</li>
-          <li>Amplify frontend</li>
+          <li>API Gateway REST API</li>
+          <li>Lambda CRUD logic</li>
+          <li>DynamoDB data storage</li>
+          <li>Amplify-hosted frontend</li>
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>React UI hosted on Amplify</li>
-          <li>Designed API Gateway routes</li>
-          <li>Lambda CRUD operations</li>
-          <li>DynamoDB table modeling</li>
-          <li>CloudWatch monitoring</li>
+          <li>Build React UI & deploy to Amplify</li>
+          <li>Design REST routes</li>
+          <li>Implement CRUD handlers</li>
+          <li>Model DynamoDB table</li>
+          <li>Enable CloudWatch logs</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
         <ul className={listBase}>
-          <li>DynamoDB</li>
-          <li>Lambda</li>
           <li>API Gateway</li>
+          <li>Lambda</li>
+          <li>DynamoDB</li>
           <li>Amplify</li>
           <li>IAM</li>
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>3–4 hours • Free tier</p>
       </section>
     ),
-
     architectureImage: "/images/projects/serverless-inventory-architecture.png",
     finalResultImage: "/images/projects/serverless-inventory.png",
   },
@@ -410,11 +379,11 @@ const projectContent: Record<string, ProjectContent> = {
         </h2>
         <h3 className="text-xl md:text-2xl font-semibold">Scenario</h3>
         <p className={textBase}>
-          Build + train + deploy a subscription prediction model using SageMaker.
+          Build and deploy a machine learning subscription prediction model
+          using Amazon SageMaker.
         </p>
       </section>
     ),
-
     about: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">
@@ -422,28 +391,26 @@ const projectContent: Record<string, ProjectContent> = {
         </h2>
         <ul className={listBase}>
           <li>S3 dataset ingestion</li>
-          <li>SageMaker training</li>
+          <li>SageMaker training jobs</li>
           <li>XGBoost binary classification</li>
-          <li>Real-time endpoint deployment</li>
+          <li>Real-time inference endpoint</li>
         </ul>
       </section>
     ),
-
     steps: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Steps I followed 👩‍💻</h2>
         <ol className="list-decimal pl-5 space-y-2">
-          <li>Configured SageMaker + IAM roles</li>
-          <li>Uploaded dataset to S3</li>
-          <li>Prepared data in Notebook</li>
-          <li>Trained XGBoost model</li>
-          <li>Deployed endpoint</li>
-          <li>Tested predictions</li>
-          <li>Cleaned up resources</li>
+          <li>Configure IAM roles for SageMaker</li>
+          <li>Upload dataset into S3</li>
+          <li>Prepare data in Notebook instance</li>
+          <li>Train XGBoost model</li>
+          <li>Deploy real-time endpoint</li>
+          <li>Test predictions</li>
+          <li>Cleanup resources</li>
         </ol>
       </section>
     ),
-
     services: (
       <section className="space-y-4">
         <h2 className="text-2xl md:text-3xl font-semibold">Services used 🛠</h2>
@@ -455,37 +422,37 @@ const projectContent: Record<string, ProjectContent> = {
         </ul>
       </section>
     ),
-
     timeAndCost: (
-      <section className="space-y-2">
+      <section>
         <h2 className="text-2xl md:text-3xl font-semibold">
           Estimated time & cost ⚙️
         </h2>
         <p className={textBase}>1.5–2.5 hours • ~$1–2</p>
       </section>
     ),
-
     architectureImage: "/images/projects/sagemaker-subscriptions-architecture.png",
     finalResultImage: "/images/projects/sagemaker-subscriptions.png",
   },
 };
 
 /* -------------------------------------------------------
-   STATIC PARAMS
+   STATIC PARAMS (SSG)
 -------------------------------------------------------- */
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
 /* -------------------------------------------------------
-   MAIN PAGE COMPONENT (Next.js 15 compliant)
+   MAIN PAGE (Next.js 15 – params is a Promise)
 -------------------------------------------------------- */
+
 export default function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = use(params);
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
@@ -538,16 +505,14 @@ export default function ProjectPage({
 
           {content.finalResultImage && (
             <section className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-semibold">
-                ➡️ Final result
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-semibold">➡️ Final result</h2>
               <p className={textBase}>
-                This is the final UI demonstrating the end-to-end workflow.
+                This is the final UI demonstrating the complete workflow.
               </p>
               <div className="relative w-full max-w-2xl rounded-lg overflow-hidden border border-gray-200 bg-black mx-auto">
                 <Image
                   src={content.finalResultImage}
-                  alt={`${project.title} final interface`}
+                  alt={`${project.title} final result`}
                   width={1000}
                   height={800}
                   className="w-full h-auto"
