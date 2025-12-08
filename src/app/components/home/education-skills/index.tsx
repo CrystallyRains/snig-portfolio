@@ -29,12 +29,12 @@ const EducationSkills = () => {
   // SKILLS SECTION CONTENT
   // --------------------------
   const skills = [
-    { name: "AWS", icon: "/images/skills/aws.png", rating: 5 },
-    { name: "VPC & Networking", icon: "/images/skills/network.png", rating: 5 },
-    { name: "Serverless (Lambda)", icon: "/images/skills/lambda.jpeg", rating: 5 },
-    { name: "DevOps / CI-CD", icon: "/images/skills/GIT.png", rating: 4 },
-    { name: "Cloud Security", icon: "/images/skills/shield.png", rating: 5 },
-    { name: "AI / ML on Cloud", icon: "/images/skills/aiml.jpeg", rating: 4 },
+    { name: "AWS", icon: getImgPath("/images/skills/aws.png"), rating: 5 },
+    { name: "VPC & Networking", icon: getImgPath("/images/skills/network.png"), rating: 5 },
+    { name: "Serverless (Lambda)", icon: getImgPath("/images/skills/lambda.jpeg"), rating: 5 },
+    { name: "DevOps / CI-CD", icon: getImgPath("/images/skills/GIT.png"), rating: 4 },
+    { name: "Cloud Security", icon: getImgPath("/images/skills/shield.png"), rating: 5 },
+    { name: "AI / ML on Cloud", icon: getImgPath("/images/skills/aiml.jpeg"), rating: 4 },
   ];
 
   return (
