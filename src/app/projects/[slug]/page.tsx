@@ -5,7 +5,9 @@ import Image from "next/image";
 import { projects, type Project } from "@/data/projects";
 
 type ProjectPageProps = {
-  params: { slug: string };
+  params: {
+    slug: string;
+  };
 };
 
 
