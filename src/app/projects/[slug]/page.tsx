@@ -482,8 +482,8 @@ export function generateStaticParams() {
 /* -------------------------------------------------------
    MAIN PAGE COMPONENT
 -------------------------------------------------------- */
-export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = params;
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
