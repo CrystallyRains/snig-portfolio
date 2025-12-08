@@ -1,0 +1,106 @@
+{
+  "contactBar": {
+    "contactItems": [
+      {
+        "type": "email",
+        "label": "snigdhachaudhari1@gmail.com",
+        "icon": "/images/icon/mail-icon.svg",
+        "link": "mailto:snigdhachaudhari1@gmail.com"
+      },
+      {
+        "type": "website",
+        "label": "snigdhachaudhari.hashnode.dev",
+        "icon": "/images/icon/web-icon.svg",
+        "link": "https://snigdhachaudhari.hashnode.dev/"
+      }
+    ],
+    "socialItems": [
+      {
+        "platform": "github",
+        "icon": "/images/icon/github-icon.svg",
+        "link": "https://github.com/CrystallyRains"
+      },
+      {
+        "platform": "hashnode",
+        "icon": "/images/icon/hashnode-icon.svg",
+        "link": "https://snigdhachaudhari.hashnode.dev/"
+      },
+      {
+        "platform": "linkedin",
+        "icon": "/images/icon/linkedin-icon.svg",
+        "link": "https://www.linkedin.com/in/snigdha-chaudhari/"
+      }
+    ]
+  },
+  "educationData": {
+    "education": [
+      {
+        "title": "Lipsum Collage - 2010",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form Koramangala collage."
+      },
+      {
+        "title": "Master Diploma - 2012",
+        "description": "Combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable."
+      },
+      {
+        "title": "Master in User Experience - 2014",
+        "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration."
+      }
+    ],
+    "skills": [
+      {
+        "name": "Figma",
+        "icon": "/images/home/education-skill/figma-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Photoshop",
+        "icon": "/images/home/education-skill/photoshop-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Sketch",
+        "icon": "/images/home/education-skill/sketch-icon.svg",
+        "rating": 4
+      },
+      {
+        "name": "Adobe XD",
+        "icon": "/images/home/education-skill/adobe-icon.svg",
+        "rating": 4
+      },
+      {
+        "name": "Framer",
+        "icon": "/images/home/education-skill/framer-icon.svg",
+        "rating": 5
+      },
+      {
+        "name": "Invasion",
+        "icon": "/images/home/education-skill/invision-icon.svg",
+        "rating": 3
+      }
+    ]
+  },
+  "contactLinks": {
+    "socialLinks": [
+      {
+        "title": "GitHub",
+        "href": "https://github.com/CrystallyRains"
+      },
+      {
+        "title": "Hashnode",
+        "href": "https://snigdhachaudhari.hashnode.dev/"
+      },
+      {
+        "title": "LinkedIn",
+        "href": "https://www.linkedin.com/in/snigdha-chaudhari/"
+      }
+    ],
+    "contactInfo": [
+      {
+        "type": "email",
+        "label": "snigdhachaudhari1@gmail.com",
+        "link": "mailto:snigdhachaudhari1@gmail.com"
+      }
+    ]
+  }
+}
