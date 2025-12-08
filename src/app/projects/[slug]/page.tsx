@@ -3,9 +3,11 @@
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { projects, type Project } from "@/data/projects";
+import { projects } from "@/data/projects";
 
-
+/* -------------------------------------------------------
+   Project Content Type
+-------------------------------------------------------- */
 type ProjectContent = {
   overview: ReactNode;
   about: ReactNode;
@@ -39,8 +41,8 @@ const projectContent: Record<string, ProjectContent> = {
         <h3 className="text-xl md:text-2xl font-semibold">Scenario</h3>
         <p className={textBase}>
           This project is built for a fictional AI-driven SaaS startup called{" "}
-          <strong>Cloudhour</strong>. They want to understand how users feel from
-          uploaded images using a real-time AI workflow.
+          <strong>Cloudhour</strong>. They want to understand how users feel
+          from uploaded images using a real-time AI workflow.
         </p>
         <p className={textBase}>
           The requirement is a <strong>serverless, real-time application</strong>{" "}
@@ -65,7 +67,6 @@ const projectContent: Record<string, ProjectContent> = {
           This project demonstrates how to combine AI API inference with AWS
           serverless for real-time computer-vision tasks.
         </p>
-
         <p className={textBase}>The app workflow includes:</p>
         <ul className={listBase}>
           <li>Frontend hosted on S3</li>
@@ -477,9 +478,13 @@ export function generateStaticParams() {
 }
 
 /* -------------------------------------------------------
-   MAIN PAGE COMPONENT
+   MAIN PAGE COMPONENT (Next.js 15 compliant)
 -------------------------------------------------------- */
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
 
   const project = projects.find((p) => p.slug === slug);
