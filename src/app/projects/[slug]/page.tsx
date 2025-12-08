@@ -5,9 +5,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects, type Project } from "@/data/projects";
 
-type ProjectPageProps = {
-  params: { slug: string };
-};
 
 type ProjectContent = {
   overview: ReactNode;
@@ -482,7 +479,7 @@ export function generateStaticParams() {
 /* -------------------------------------------------------
    MAIN PAGE COMPONENT
 -------------------------------------------------------- */
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   const project = projects.find((p) => p.slug === slug);
