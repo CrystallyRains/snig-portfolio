@@ -10,7 +10,7 @@ export const getImgPath = (path: string): string => {
   }
 
   if (path.startsWith(basePath)) {
-    return path;
+    return path;  
   }
 
   return `${basePath}${path}`;
