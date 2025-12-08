@@ -4,6 +4,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects, type Project } from "@/data/projects";
 
+type ProjectPageProps = {
+  params: { slug: string };
+};
+
+
 type ProjectContent = {
   overview: ReactNode;
   about: ReactNode;
@@ -1090,16 +1095,17 @@ export function generateStaticParams(): { slug: string }[] {
   }));
 }
 
-export default function ProjectPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function ProjectPage({ params }: ProjectPageProps) {
+
   const project = projects.find((p: Project) => p.slug === params.slug);
 
   if (!project) return notFound();
 
-  const content = projectContent[params.slug];
+  const content = projectContent[params.slug] as ProjectContent | undefined;
+
+if (!content) {
+  return notFound();
+}
 
   return (
     <section className="bg-softGray">
