@@ -46,8 +46,7 @@ const AboutMe = () => {
                   <br /><br />
                   My journey hasn’t been linear, it’s been shaped by curiosity, 
                   consistency, and a genuine love for cloud. I’ve learned by building,
-                   breaking, fixing, and exploring architectures that mirror real production 
-                   systems. Today, I share those learnings through hands-on labs and practical 
+                   breaking, fixing, and exploring architectures. I share those learnings through hands-on labs and practical 
                    tutorials that show how AWS is used in the real world.
                   <br /><br />
                   I care about making cloud accessible, simple, and meaningful, and I’m driven by 
@@ -57,8 +56,8 @@ const AboutMe = () => {
                 {/* Stats */}
                 <div className="grid grid-cols-3 py-10 xl:py-16 gap-5 border-b border-mistGray">
                   {[ 
-                    { count: "3.5+", label: "Years of Cloud Experience" },
-                    { count: "35+", label: "AWS Projects Built" },
+                    { count: "3+", label: "Years of Cloud Experience" },
+                    { count: "20+", label: "AWS Projects Built" },
                     { count: "5000+", label: "Learners Impacted" },
                   ].map((item, i) => (
                     <div key={i}>
