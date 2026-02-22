@@ -53,7 +53,7 @@ const index = () => {
         <Image
           src={getImgPath("/images/home/banner/banner-img.jpeg")}
           // same here: point to your own hero image when ready
-          alt="Snigdha Chaudhari – Cloud Solutions Architect"
+          alt="Snigdha Chaudhari – Cloud Engineer"
           width={685}
           height={650}
           className="absolute right-0 top-0 z-1"
