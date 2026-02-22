@@ -22,7 +22,7 @@ const index = () => {
               <h1>
                 {" "}
                 <span className="text-primary">
-                  Cloud Solutions Architect
+                  Cloud Engineer
                 </span>
               </h1>
             </div>
