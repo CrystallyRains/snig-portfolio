@@ -16,7 +16,7 @@ const ExperienceSec = () => {
       company: "DXC Technology",
       type: "Remote",
       description:
-        "Supported enterprise AWS and hybrid environments by resolving infra issues, improving reliability, analyzing logs, and producing clear technical documentation for smooth operations.",
+        "Resolved infra issues, improving reliability, analyzing logs, and producing clear technical documentation for smooth operations.",
     },
   ];
 
