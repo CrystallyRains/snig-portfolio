@@ -4,7 +4,7 @@ const ExperienceSec = () => {
   const experiences = [
     {
       year: "2025 - Present",
-      title: "Cloud Solutions Architect - DevRel",
+      title: "Cloud Engineer",
       company: "Zero To Cloud",
       type: "Remote",
       description:
@@ -17,14 +17,6 @@ const ExperienceSec = () => {
       type: "Remote",
       description:
         "Supported enterprise AWS and hybrid environments by resolving infra issues, improving reliability, analyzing logs, and producing clear technical documentation for smooth operations.",
-    },
-    {
-      year: "2024",
-      title: "Cloud Engineering Intern",
-      company: "Placify Technologies",
-      type: "Remote",
-      description:
-        "Built cloud automation and CI/CD workflows, worked with Terraform and ECS Fargate, and assisted in deploying scalable backend applications.",
     },
   ];
 
