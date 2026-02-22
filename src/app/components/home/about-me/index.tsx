@@ -56,7 +56,7 @@ const AboutMe = () => {
                 {/* Stats */}
                 <div className="grid grid-cols-3 py-10 xl:py-16 gap-5 border-b border-mistGray">
                   {[ 
-                    { count: "3+", label: "Years of Cloud Experience" },
+                    { count: "3+", label: "Years of Experience" },
                     { count: "20+", label: "AWS Projects Built" },
                     { count: "5000+", label: "Learners Impacted" },
                   ].map((item, i) => (
